@@ -1,0 +1,61 @@
+# debugMode enables / disables the debug mode for Rasa and Rasa X
+debugMode: true
+nginx:
+  service:
+    enabled: true
+    # connect LoadBalancer directly to VMs' internal IP
+    # You get this value with: $ hostname -I
+    externalIPs: []
+
+rasax:
+  # initialUser is the user which is created upon the initial start of Rasa X
+  initialUser:
+    # password for the Rasa X user
+    username: "admin"
+    password: "admin123"
+  # passwordSalt Rasa X uses to salt the user passwords
+  passwordSalt: "AnotherSecureRandomString"
+  # token Rasa X accepts as authentication token from other Rasa services
+  token: "AnotherSecureRandomString"
+  # jwtSecret which is used to sign the jwtTokens of the users
+  jwtSecret: "AnotherSecureRandomString"
+  # tag refers to the Rasa X image tag
+  tag: "1.1.4"
+  service:
+    type: LoadBalancer
+rasa:
+  # token Rasa accepts as authentication token from other Rasa services
+  token: "AnotherSecureRandomString"
+  versions:
+    rasaProduction:
+      enabled: false
+      external:
+        enabled: true
+        url: "http://10.123.40.147:5005"
+    rasaWorker:
+      enabled: false
+      external:
+        enabled: true
+        url: "http://10.123.40.147:5005"
+rabbitmq:
+  install: true
+  enabled: true
+  auth:
+    username: "user"
+    password: "password"
+    existingPasswordSecret: ""
+  service:
+    port: 5672
+    type: LoadBalancer
+
+global:
+  # postgresql: global settings of the postgresql subchart
+  postgresql:
+    # postgresqlPassword is the password which is used when the postgresqlUsername equals "postgres"
+    postgresqlPassword: "AnotherSecureRandomString"
+  # redis: global settings of the postgresql subchart
+  redis:
+    # password to use in case there no external secret was provided
+    password: "AnotherSecureRandomString"
+app:
+  install: false

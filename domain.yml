@@ -1,0 +1,695 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- RMS_request_medicine_delivery_menu_ar
+- go_back_ar
+- beneficiaries_of_my_hakeem
+- meaning_of_subscriber_name
+- error_not_registered_in_civil_status
+- error_patient_already_registered
+- error_invalid_subscription_code
+- multiple_patients_one_phone
+- contact_technical_support
+- register_patients_under_18
+- message_request_in_progress
+- how_to_view_my_medications
+- eligible_medications_for_delivery
+- medication_delivery_process
+- medication_delivery_fee
+- canceled_medication_delivery
+- reference_number_for_payment
+- error_invalid_family_book_number
+- error_check_internet_connection
+- error_image_size_exceeded
+- uninsured_medication_delivery
+- general_inquiries_menu_ar
+- check_order_duration
+- check_monthly_medication
+- verify_selected_facility
+- nlu_fallback
+- not_patient
+- MOH_menu_ar
+- RMS_menu_ar
+- return_to_main_menu_ar
+- welcome
+- submit_followup_request
+- inquire_followup_status
+- register_methods
+- change_password
+- change_phone_number
+- login_issue
+- payment_methods
+- payment_not_completed
+- invalid_payment_amount
+- lab_tests
+- radiology_reports
+- new_delivery_request
+- request_status_inquire
+- no_followup_sms_received
+- request_medicine_delivery_menu_ar
+- online_payment_services_menu_ar
+- manage_account_menu_ar
+- main_menu_ar
+- lab_tests_and_radiology_reports_menu_ar
+- followup_appointment_menu_MOH_ar
+- available_facilities_for_followup
+- cannot_submit_delivery_request_menu_ar
+- go_back
+- manage_account_general_inquiries_menu_ar
+- request_medicine_delivery_general_inquiries_menu_ar
+- RMS_request_medicine_delivery_menu_en
+- beneficiaries_of_my_hakeem_en
+- meaning_of_subscriber_name_en
+- error_not_registered_in_civil_status_en
+- error_patient_already_registered_en
+- error_invalid_subscription_code_en
+- multiple_patients_one_phone_en
+- contact_technical_support_en
+- register_patients_under_18_en
+- message_request_in_progress_en
+- how_to_view_my_medications_en
+- eligible_medications_for_delivery_en
+- medication_delivery_process_en
+- medication_delivery_fee_en
+- canceled_medication_delivery_en
+- reference_number_for_payment_en
+- error_invalid_family_book_number_en
+- error_check_internet_connection_en
+- error_image_size_exceeded_en
+- uninsured_medication_delivery_en
+- general_inquiries_menu_en
+- check_order_duration_en
+- check_monthly_medication_en
+- verify_selected_facility_en
+- not_patient_en
+- MOH_menu_en
+- RMS_menu_en
+- return_to_main_menu_en
+- welcome_en
+- submit_followup_request_en
+- inquire_followup_status_en
+- register_methods_en
+- change_password_en
+- change_phone_number_en
+- login_issue_en
+- payment_methods_en
+- payment_not_completed_en
+- invalid_payment_amount_en
+- lab_tests_en
+- radiology_reports_en
+- new_delivery_request_en
+- request_status_inquire_en
+- no_followup_sms_received_en
+- request_medicine_delivery_menu_en
+- online_payment_services_menu_en
+- manage_account_menu_en
+- main_menu_en
+- lab_tests_and_radiology_reports_menu_en
+- followup_appointment_menu_MOH_en
+- available_facilities_for_followup_en
+- cannot_submit_delivery_request_menu_en
+- go_back_en
+- manage_account_general_inquiries_menu_en
+- request_medicine_delivery_general_inquiries_menu_en
+- request_medicine_delivery_en
+- not_a_patient_en
+- lab_tests_and_radiology_reports_en
+- MOH_services_en
+- RMS_services_en
+- online_payment_services_en
+- followup_appointment_en
+- go_back_main_ar
+- manage_account_en
+slots:
+  menu_stack:
+    type: list
+    influence_conversation: true
+    mappings: []
+responses:
+  utter_default_message:
+  - text: عذرا لم استطع فهمك, هل تسطيع اعاده صياغه السؤال؟
+  utter_return_to_main_menu_ar:
+  - buttons:
+    - payload: /main_menu_ar
+      title: ' العودة الى القائمة الرئيسية'
+    - payload: /go_back_ar
+      title: ' العودة الى القائمة السابقة'
+    text: ''
+  utter_main_menu_ar:
+  - buttons:
+    - payload: /MOH_menu_ar
+      title: وزارة الصحة
+    - payload: /RMS_menu_ar
+      title: 'خدمات طبية ملكية '
+    - payload: /not_patient
+      title: غير مراجع
+    text: 'هل أنت مراجع للمنشآت التالية:'
+  utter_welcome:
+  - text: مرحبا كيف بقدر اساعدك
+  utter_MOH_menu_ar:
+  - buttons:
+    - payload: /manage_account_menu_ar
+      title: إدارة الحساب
+    - payload: /request_medicine_delivery_menu_ar
+      title: طلب توصيل الأدوية
+    - payload: /online_payment_services_menu_ar
+      title: خدمات الدفع الإلكترونية
+    - payload: /lab_tests_and_radiology_reports_menu_ar
+      title: تفاصيل التحاليل المخبرية وتقارير الأشعة
+    - payload: /followup_appointment_menu_MOH
+      title: موعد متابعة
+    - payload: /general_inquiries_menu_ar
+      title: استفسارات عامة
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار إحدى الاستفسارات المتوفرة لمراجعي وزارة الصحة ضمن القوائم التالية:'
+  utter_RMS_menu_ar:
+  - buttons:
+    - payload: /manage_account_menu_ar
+      title: إدارة الحساب
+    - payload: /RMS_request_medicine_delivery_menu_ar
+      title: طلب توصيل الأدوية
+    - payload: /online_payment_services_menu_ar
+      title: خدمات الدفع الإلكترونية
+    - payload: /lab_tests_and_radiology_reports_menu_ar
+      title: تفاصيل التحاليل المخبرية وتقارير الأشعة
+    - payload: /general_inquiries_menu_ar
+      title: استفسارات عامة
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار إحدى الاستفسارات المتوفرة لمراجعي الخدمات طبية ملكية ضمن القوائم التالية:'
+  utter_not_patient:
+  - text: لا يمكنك الإستفادة من خدمات حكيمي الالكترونية
+  utter_manage_account_menu_ar:
+  - buttons:
+    - payload: /register_methods
+      title: تسجيل مستخدم جديد
+    - payload: /change_password
+      title: تغيير كلمة المرور
+    - payload: /change_phone_number
+      title: تغيير رقم الهاتف
+    - payload: ' /login_issue'
+      title: ' لا استطيع الدخول إلى ملفه الطبي/ الشخصي'
+    - payload: /manage_account_general_inquiries_menu_ar
+      title: استفسارات عامة
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_online_payment_services_menu_ar:
+  - buttons:
+    - payload: /payment_methods
+      title: طرق الدفع
+    - payload: /payment_not_completed
+      title: لا يمكن إتمام عملية الدفع
+    - payload: /invalid_payment_amount
+      title: مبلغ الدفع غير صحيح
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_lab_tests_and_radiology_reports_menu_ar:
+  - buttons:
+    - payload: /lab_tests
+      title: المختبر
+    - payload: /radiology_reports
+      title: تقارير صورة الأشعة
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_request_medicine_delivery_menu_ar:
+  - buttons:
+    - payload: /new_delivery_request
+      title: طلب توصيل جديد
+    - payload: /cannot_submit_delivery_request_menu_ar
+      title: لا يمكن تقديم طلب التوصيل
+    - payload: /request_status_inquire
+      title: الاستفسار عن حالة الطلب
+    - payload: /request_medicine_delivery_general_inquiries_menu_ar
+      title: استفسارات عامة
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_followup_appointment_menu_MOH_ar:
+  - buttons:
+    - payload: /submit_followup_request
+      title: طريقة تقديم طلب موعد متابعة عن طريق تطبيق ماي حكيم
+    - payload: /inquire_followup_status
+      title: الإستفسار عن حالة طلب موعد المتابعة
+    - payload: /available_facilities_for_followup
+      title: المنشآت التي يستطيع المريض أخد موعد فيها
+    - payload: /no_followup_sms_received
+      title: عدم وصول مسج موعد المتابعة التي تم أخده عن طريق التطبيق
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_register_methods:
+  - image: https://my.hakeem.jo/imgs/infographs/registration/howtouse-mobile-right.jpg
+    text: يرجى اختيار مما يلي
+  utter_change_password:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_login_issue:
+  - text: في حالة لا يستطيع الدخول إلى ملفه الطبي/ الشخصي يرجى التواصل مع الدعم الفني
+  utter_change_phone_number:
+  - text: يمكن تعديل رقم الهاتف من خلال الدخول الى ملفه الطبي\الشخصي ثم تعديل رقم الهاتف
+  utter_payment_methods:
+  - text: يمكنك الدفع من خلال إي فواتيركم - تطبيقات البنوك - محلات صرافة
+  utter_payment_not_completed_res_1:
+  - text: في حالة وصول رسالة الدفع ولا توجد فاتورة مستحقة (التواصل على الرقم 0793335544)
+  utter_invalid_payment_amount_res_1:
+  - text: اذا كان مبلغ الدفع غير صحيح , في حالة كان التأمين الطبي أو الإعفاء غير ساري المفعول يرجى تجديد التأمين أو الإعفاء
+  utter_lab_tests_res_3:
+  - text: في حال تجاوز الفحص الطبي نطاق الست شهور يجب تعديل نطاق البحث ليشمل الفترة التي أجري فيها الفحص الطبي
+  utter_radiology_reports_res_1:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_new_delivery_request:
+  - image: https://my.hakeem.jo/imgs/infographs/medication/howtouse-mobile-right.jpg
+    text: ''
+  utter_cannot_submit_delivery_request_menu_ar:
+  - buttons:
+    - payload: /check_order_duration
+      title: لم يتعدَ 20 يوم للطلب
+    - payload: /check_monthly_medication
+      title: لا يوجد لديك أي دواء شهري للصرف
+    - payload: /verify_selected_facility
+      title: يرجى التأكد من المنشأة التي قمت بإحتيارها
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_request_status_inquire:
+  - text: يمكن الاستفسار عن حالة الطلب عن طريق زر القائمة، سجل توصيل الأدوية، الإطلاع على حالة الطلب
+  utter_submit_followup_request:
+  - text: '"يجب توفر تحويلة ، يجب توفر صورة عن بطاقة التأمين أو الإعفاء"'
+  utter_inquire_followup_status:
+  - text: للإستفسار عن حالة طلب موعد المتابعة عن طريق زر القائمة، سجل طلب موعد متابعة
+  utter_available_facilities_for_followup:
+  - text: المنشآت التي يستطيع المريض أخد موعد هي التي تظهر على التطبيق
+  utter_no_followup_sms_received:
+  - text: في حال عدم وصول مسج موعد المتابعة التي تم أخده عن طريق التطبيق يجب مراجعة قسم السجلات في المنشأة التي تم أخد الموعد فيها
+  utter_check_order_duration:
+  - text: اذا ظهر انه لم يتعدَ 20 يوم للطلب  يجب التأكد من تاريخ آخر صرف للدواء عن طريق زر القائمة ، الأدوية الفعالة
+  utter_check_monthly_medication:
+  - text: اذا ظهر انه لا يوجد لديك أي دواء شهري للصرف يجب مراجعة المنشأة لتجديد الوصفة الشهرية وصرفها من المنشأة بعد التجديد " لأول مرة"
+  utter_verify_selected_facility:
+  - text: اذا ظهر "يرجى التأكد من المنشأة التي قمت بإحتيارها" فيجب التأكد من المنشأة التي يتم صرف العلاج منها عن طريق زر القائمة، الأدوية الفعالة
+  utter_payment_not_completed_res_2:
+  - text: في حالة عدم وصول رسالة الدفع المستحقة يرجى التأكد من حالة الطلب (زر القائمة، سجل توصيل الأدوية، حالة الطلب)
+  utter_invalid_payment_amount_res_2:
+  - text: في حال كان التأمين الطبي أو الإعفاء ساري المفعول يرجى التواصل على الرقم 0793335544
+  utter_lab_tests_res_1:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_lab_tests_res_2:
+  - text: في حال لم يتم تحميل الملف بنجاح يرجى التواصل على الرقم 0793335544
+  utter_radiology_reports_res_2:
+  - text: في حالة عدم توفر تقرير عن صورة الأشعة يرجى مراجعة المنشأة الصحية
+  utter_not_military_patient_note:
+  - text: في حالة كان تأمين المريض غير عسكري (مدني) لا يستطيع تقديم طلب توصيل الأدوية.
+  utter_beneficiaries_of_my_hakeem:
+  - text: المراجعين لوزارة الصحة والخدمات الطبية الملكية
+  utter_meaning_of_subscriber_name:
+  - text: 'اسم المشترك: هو الرقم الوطني للمواطن الأردني ولغيرالأردني الرقم المتسلسل او الشخصي المسجل لدى المنشأة'
+  utter_error_not_registered_in_civil_status:
+  - text: يرجى الاتصال على الرقم  0793335544
+  utter_error_patient_already_registered:
+  - text: 'يرجى محاولة إعادة تعيين كلمة مرور جديدة من خلال : هل نسيت كلمة المرور'
+  utter_error_invalid_subscription_code:
+  - text: إذا كان رمز الإشتراك غير صحيح إما إدخاله مجددًا أو اضغط هل نسيت كلمة المرور لإنشاء كلمة مرور جديدة.
+  utter_multiple_patients_one_phone:
+  - text: يتيح النظام تسجيل أكثر من مريض على رقم هاتف واحد
+  utter_contact_technical_support:
+  - text: |-
+      يمكن التواصل من خلال رقم الهاتف: 0793335544 أو من خلال البريد الإلكتروني: 
+      callcenter@ehs.com.jo
+  utter_register_patients_under_18:
+  - text: يمكن تسجيل المريض الأقل من 18 سنه إدخال الرقم الوطني لإحدى الوالدين بعد إدخال الرقم الوطني وتاريخ الميلاد للمريض
+  utter_message_request_in_progress:
+  - text: تظهر عندما يقوم المريض بتقديم طلب توصيل أدويه وهو لديه طلب آخر. يمكن الاطلاع على الطلب من خلال سجل توصيل الأدوية
+  utter_how_to_view_my_medications:
+  - text: يمكن الإطلاع على الأدوية من خلال الصفحة الرئيسية أو من خلال القائمة وإختيار خيار الأدوية
+  utter_eligible_medications_for_delivery:
+  - text: يمكن توصيل الأدوية المزمنة التي تحتاج صرف شهري فقط
+  utter_medication_delivery_process:
+  - text: 'تسلسل طلب توصيل الأدوية: قيد التنفيذ- قيد التفعيل – قيد التدقيق المحاسبي- بإنتظار الدفعة – مدفوعة – قيد الغليف – جاهز للتوصيل.، ويمكن الإطلاع على حالة الطلب من خلال سجل توصيل الأدوية'
+  utter_medication_delivery_fee:
+  - text: تبلغ رسوم  التوصيل دينارين لجميع مناطق المملكة.
+  utter_canceled_medication_delivery:
+  - text: اذا تم الغاء الطلب يرجى التواصل مع صيدلية التوصيل لمعرفة السبب
+  utter_reference_number_for_payment:
+  - text: الرقم المرجعي هو الرقم الوطني (الأردني) ,الرقم الطبي أو التسلسلي (الغير اردني)
+  utter_error_invalid_family_book_number:
+  - text: اذا ظهر رقم دفتر العائلة غير صحيح يرجى التأكد من إدخال رقم دفتر العائلة حسب ما هو موجود على دفتر العائلة، إذا كان هناك أصفار في بداية الرقم إدخال الرقم بدون الأصفار
+  utter_error_check_internet_connection:
+  - text: |-
+      التأكد من جودة الانترنت على الهاتف، في حالة تشغيل تطبيق
+      “ VPN”  التأكد من إغلاقه ثم إعادة الدخول الى التطبيق 
+      يمكن فتح التطبيق من خلال المتصفح موقع بوابة حكيمي الإلكترونية.
+  utter_error_image_size_exceeded:
+  - text: يمكن تقليص حجم الصورة من خلال أخد لقطة الشاشة أو استخدام كاميرا الواتساب
+  utter_uninsured_medication_delivery:
+  - text: فقط  الأشخاص المؤمنين يمكنهم الاستفادة من خدمة طلب توصيل الأدوية من مستشفى الأمير حمزة
+  utter_general_inquiries_menu_ar:
+  - buttons:
+    - payload: /contact_technical_support
+      title: كيفية التواصل مع الدعم الفني لتطبيق ماي حكيم؟
+    - payload: /error_check_internet_connection
+      title: 'في حالة ظهور مسج: " يرجى التأكد أن جهازك متصل بالانترنت"؟'
+    - payload: /error_image_size_exceeded
+      title: 'في حال ظهور رسالة : يجب أن لا يتعدّ حجم الصورة 5 MP '
+    - payload: /uninsured_medication_delivery
+      title: هل يمكن للأشخاص الغير مؤمنين طلب توصيل الأدوية من مستشفى الأمير حمزة
+    - payload: /manage_account_general_inquiries_menu_ar
+      title: استفسارات عامة عن ادارة الحساب
+    - payload: /request_medicine_delivery_general_inquiries_menu_ar
+      title: استفسارات عامة عن طلب توصيل الأدوية
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_manage_account_general_inquiries_menu_ar:
+  - buttons:
+    - payload: /beneficiaries_of_my_hakeem
+      title: الأشخاص المستفيدين من (ماي حكيم)؟
+    - payload: /meaning_of_subscriber_name
+      title: ما المقصود بإسم المشترك؟
+    - payload: /error_not_registered_in_civil_status
+      title: في حال ظهور مسج " غير مسجل بالأحوال المدنية"؟
+    - payload: /error_patient_already_registered
+      title: في حال ظهور مسج " المريض مسجل مسبقًا" ؟
+    - payload: /error_invalid_subscription_code
+      title: رمز الإشتراك غير صحيح؟
+    - payload: /multiple_patients_one_phone
+      title: هل يمكن تسجيل أكثر من مريض على رقم هاتف واحد؟
+    - payload: /register_patients_under_18
+      title: هل يمكن تسجيل المرضى الذبن اعمارهم تحت 18 سنة؟
+    - payload: /error_invalid_family_book_number
+      title: 'في حالة ظهور مسج : " رقم دفتر العائلة غير صحيح" ؟'
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_request_medicine_delivery_general_inquiries_menu_ar:
+  - buttons:
+    - payload: /message_request_in_progress
+      title: 'رسالة: لديك طلب نعمل عليه حاليًا؟ '
+    - payload: /how_to_view_my_medications
+      title: كيف يمكنني رؤية أدويتي ؟
+    - payload: /eligible_medications_for_delivery
+      title: ما هي الأدوية التي يستطيع المريض تقديم الطلب لتوصيل الأدوية من خلال التطبيق؟
+    - payload: /medication_delivery_process
+      title: ما هو تسلسل طلب توصيل الأدوية؟
+    - payload: /medication_delivery_fee
+      title: 'كم تبلغ رسوم طلب توصيل الأدوية؟ '
+    - payload: /canceled_medication_delivery
+      title: إذا تم إلغاء طلب توصيل الأدوية لأي سبب كان ؟
+    - payload: /reference_number_for_payment
+      title: ما هو الرقم المرجعي للدفع لخدمة توصيل الأدوية؟
+    - payload: /go_back_ar
+      title: العودة الى القائمة السابقة
+    text: 'يرجى اختيار أحد الخيارات للمتابعة:'
+  utter_request_medicine_delivery_note:
+  - text: في حالة كان تأمين المريض غير عسكري (مدني) لا يستطيع تقديم طلب توصيل الأدوية.
+  utter_default_message_en:
+  - text: Sorry, I couldn't understand you. Can you rephrase your question?
+  utter_return_to_main_menu_en:
+  - buttons:
+    - payload: /main_menu_en
+      title: Return to the main menu
+    - payload: /go_back_en
+      title: Return to the previous menu
+    text: ''
+  utter_main_menu_en:
+  - buttons:
+    - payload: /MOH_menu_en
+      title: Ministry of Health
+    - payload: /RMS_menu_en
+      title: Royal Medical Services
+    - payload: /not_patient_en
+      title: Not a patient
+    text: Are you a patient of the following institutions?
+  utter_welcome_en:
+  - text: Hello! How can I assist you?
+  utter_MOH_menu_en:
+  - buttons:
+    - payload: /manage_account_menu_en
+      title: Manage Account
+    - payload: /request_medicine_delivery_menu_en
+      title: Request Medicine Delivery
+    - payload: /online_payment_services_menu_en
+      title: Online Payment Services
+    - payload: /lab_tests_and_radiology_reports_menu_en
+      title: Lab Tests and Radiology Reports
+    - payload: /followup_appointment_menu_MOH_en
+      title: Follow-up Appointment
+    - payload: /general_inquiries_menu_en
+      title: General Inquiries
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the available inquiries for Ministry of Health patients from the following lists:'
+  utter_RMS_menu_en:
+  - buttons:
+    - payload: /manage_account_menu_en
+      title: Manage Account
+    - payload: /RMS_request_medicine_delivery_menu_en
+      title: Request Medicine Delivery
+    - payload: /online_payment_services_menu_en
+      title: Online Payment Services
+    - payload: /lab_tests_and_radiology_reports_menu_en
+      title: Lab Tests and Radiology Reports
+    - payload: /general_inquiries_menu_en
+      title: General Inquiries
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the available inquiries for Royal Medical Services patients from the following lists:'
+  utter_not_patient_en:
+  - text: You cannot benefit from Hakeem's electronic services.
+  utter_manage_account_menu_en:
+  - buttons:
+    - payload: /register_methods_en
+      title: Register a New User
+    - payload: /change_password_en
+      title: Change Password
+    - payload: /change_phone_number_en
+      title: Change Phone Number
+    - payload: /login_issue_en
+      title: I can't access my medical/personal file
+    - payload: /manage_account_general_inquiries_menu_en
+      title: General Inquiries
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_online_payment_services_menu_en:
+  - buttons:
+    - payload: /payment_methods_en
+      title: Payment Methods
+    - payload: /payment_not_completed_en
+      title: Payment Could Not Be Completed
+    - payload: /invalid_payment_amount_en
+      title: Incorrect Payment Amount
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_lab_tests_and_radiology_reports_menu_en:
+  - buttons:
+    - payload: /lab_tests_en
+      title: Lab Tests
+    - payload: /radiology_reports_en
+      title: Radiology Reports
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_request_medicine_delivery_menu_en:
+  - buttons:
+    - payload: /new_delivery_request_en
+      title: New Delivery Request
+    - payload: /cannot_submit_delivery_request_menu_en
+      title: Cannot Submit Delivery Request
+    - payload: /request_status_inquire_en
+      title: Inquire About Request Status
+    - payload: /request_medicine_delivery_general_inquiries_menu_en
+      title: General Inquiries
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_followup_appointment_menu_MOH_en:
+  - buttons:
+    - payload: /submit_followup_request_en
+      title: How to Submit a Follow-up Appointment Request via My Hakeem App
+    - payload: /inquire_followup_status_en
+      title: Inquire About Follow-up Appointment Status
+    - payload: /available_facilities_for_followup_en
+      title: Facilities Available for Follow-up Appointments
+    - payload: /no_followup_sms_received_en
+      title: No Follow-up SMS Received After Booking Through the App
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_register_methods_en:
+  - image: https://my.hakeem.jo/imgs/infographs/registration/howtouse-mobile-left.jpg
+    text: ''
+  utter_change_password_en:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_login_issue_en:
+  - text: If you cannot access your medical/personal file, please contact technical support.
+  utter_change_phone_number_en:
+  - text: You can update your phone number by accessing your medical/personal profile and then modifying the phone number.
+  utter_payment_methods_en:
+  - text: You can payment  through E-Fawateercom, bank apps, or exchange shops.
+  utter_payment_not_completed_res_1_en:
+  - text: If you receive a payment confirmation message but no due invoice appears, please call 0793335544.
+  utter_invalid_payment_amount_res_1_en:
+  - text: If the payment amount is incorrect due to invalid medical insurance or exemption, please renew your insurance or exemption.
+  utter_lab_tests_res_3_en:
+  - text: If the medical test exceeds six months, please adjust the search range to include the date of the test.
+  utter_radiology_reports_res_1_en:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_new_delivery_request_en:
+  - image: https://my.hakeem.jo/imgs/infographs/medication/howtouse-mobile-left.jpg
+    text: ''
+  utter_cannot_submit_delivery_request_menu_en:
+  - buttons:
+    - payload: /check_order_duration_en
+      title: The order has not exceeded 20 days
+    - payload: /check_monthly_medication_en
+      title: No monthly medication available for dispensing
+    - payload: /verify_selected_facility_en
+      title: Please verify the selected facility
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_request_status_inquire_en:
+  - text: You can inquire about the order status through menu button, accessing the medicine delivery record, and checking the order status
+  utter_submit_followup_request_en:
+  - text: A referral is required, and a copy of the insurance or exemption card must be available.
+  utter_inquire_followup_status_en:
+  - text: To inquire about the status of a follow-up appointment request, use the menu button and then access the follow-up appointment request record
+  utter_available_facilities_for_followup_en:
+  - text: The facilities where a patient can book an appointment are those that appear on the app.
+  utter_no_followup_sms_received_en:
+  - text: If you do not receive a follow-up appointment message booked through the app, please visit the records department of the facility where the appointment was booked.
+  utter_check_order_duration_en:
+  - text: If the order has not exceeded 20 days, please check the last dispensing date of the medication via 'Menu button → Active Medications'.
+  utter_check_monthly_medication_en:
+  - text: If it appears that you do not have any monthly medication to dispense, you must visit the facility to renew the monthly prescription and dispense it from the facility after renewal 'for the first time'.
+  utter_verify_selected_facility_en:
+  - text: If the message 'Please verify the facility you have selected' appears, you must confirm the facility from which the treatment is dispensed by clicking 'Menu → Active Medications'.
+  utter_payment_not_completed_res_2_en:
+  - text: If the payment confirmation message was not received, please check the order status (Menu button → Medicine Delivery Record → Order Status).
+  utter_invalid_payment_amount_res_2_en:
+  - text: If the insurance or exemption is valid, please contact 0793335544.
+  utter_lab_tests_res_1_en:
+  - image: https://placehold.co/600x400
+    text: ''
+  utter_lab_tests_res_2_en:
+  - text: If the file was not uploaded successfully, please contact 0793335544.
+  utter_radiology_reports_res_2_en:
+  - text: If a report for the X-ray is not available, please check with the healthcare facility.
+  utter_not_military_patient_note_en:
+  - text: If the patient's insurance is not military (civilian), they cannot submit a request for medicine delivery.
+  utter_beneficiaries_of_my_hakeem_en:
+  - text: Beneficiaries of the Ministry of Health and Royal Medical Services.
+  utter_meaning_of_subscriber_name_en:
+  - text: 'Subscriber name: This is the national number for Jordanian citizens; for non-Jordanians, it is the serial number or personal number registered with the facility.'
+  utter_error_not_registered_in_civil_status_en:
+  - text: For assistance, call 0793335544.
+  utter_error_patient_already_registered_en:
+  - text: 'Please try to reset your password through: Forgot Password.'
+  utter_error_invalid_subscription_code_en:
+  - text: If the subscription code is incorrect, please re-enter it or click on 'Forgot Password' to create a new password.
+  utter_multiple_patients_one_phone_en:
+  - text: The system allows registering more than one patient on one phone number.
+  utter_contact_technical_support_en:
+  - text: |-
+      You can contact us at 0793335544 or via email: 
+      callcenter@ehs.com.jo
+  utter_register_patients_under_18_en:
+  - text: A patient under 18 years old can be registered by entering one of the parents' national numbers after entering the national number and birth date of the patient.
+  utter_message_request_in_progress_en:
+  - text: This appears when the patient submits a medicine delivery request and has another request. The order can be viewed through the medicine delivery record.
+  utter_how_to_view_my_medications_en:
+  - text: You can view medications from the homepage or by selecting the medications option from the menu.
+  utter_eligible_medications_for_delivery_en:
+  - text: Chronic medications that require monthly dispensing only can be delivered.
+  utter_medication_delivery_process_en:
+  - text: 'The sequence of the medicine delivery request: In progress - Activating - Accounting review - Awaiting payment - Paid - Being packaged - Ready for delivery. The order status can be checked through the medicine delivery record.'
+  utter_medication_delivery_fee_en:
+  - text: The delivery fee is two dinars for all areas of the Kingdom of Jordan.
+  utter_canceled_medication_delivery_en:
+  - text: If the order has been canceled, please contact the delivery pharmacy to know the reason.
+  utter_reference_number_for_payment_en:
+  - text: The reference number is the national number (Jordanian), the medical number, or the serial number (for non-Jordanians).
+  utter_error_invalid_family_book_number_en:
+  - text: If the family book number appears incorrect, please ensure to enter it as it appears on the family book. If there are leading zeros, enter the number without the zeros.
+  utter_error_check_internet_connection_en:
+  - text: |-
+      Ensure the internet quality on your phone. If a VPN app is running, ensure it is closed and then re-enter the app. 
+      The application can be accessed through the browser on the Hakeem Portal website.
+  utter_error_image_size_exceeded_en:
+  - text: You can reduce the image size by taking a screenshot or using WhatsApp's camera.
+  utter_uninsured_medication_delivery_en:
+  - text: Only insured individuals can benefit from the medicine delivery service from Prince Hamza Hospital.
+  utter_general_inquiries_menu_en:
+  - buttons:
+    - payload: /contact_technical_support_en
+      title: How to contact technical support for the My Hakeem app?
+    - payload: /error_check_internet_connection_en
+      title: 'If the message appears: "Please ensure your device is connected to the internet?"'
+    - payload: /error_image_size_exceeded_en
+      title: 'If the message appears: The image size must not exceed 5 MP.'
+    - payload: /uninsured_medication_delivery_en
+      title: Can uninsured individuals request medicine delivery from Prince Hamza Hospital?
+    - payload: /manage_account_general_inquiries_menu_en
+      title: General inquiries about account management.
+    - payload: /request_medicine_delivery_general_inquiries_menu_en
+      title: General inquiries about medicine delivery requests.
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_manage_account_general_inquiries_menu_en:
+  - buttons:
+    - payload: /beneficiaries_of_my_hakeem_en
+      title: Who are the beneficiaries of (My Hakeem)?
+    - payload: /meaning_of_subscriber_name_en
+      title: What is meant by the subscriber name?
+    - payload: /error_not_registered_in_civil_status_en
+      title: 'If the message appears: "Not registered in civil status?"'
+    - payload: /error_patient_already_registered_en
+      title: 'If the message appears: "Patient already registered?"'
+    - payload: /error_invalid_subscription_code_en
+      title: Is the subscription code incorrect?
+    - payload: /multiple_patients_one_phone_en
+      title: Can more than one patient be registered on one phone number?
+    - payload: /register_patients_under_18_en
+      title: Can patients under 18 years old be registered?
+    - payload: /error_invalid_family_book_number_en
+      title: 'If the message appears: "Family book number is incorrect?"'
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_request_medicine_delivery_general_inquiries_menu_en:
+  - buttons:
+    - payload: /message_request_in_progress_en
+      title: 'Message: You have a request we are currently working on?'
+    - payload: /how_to_view_my_medications_en
+      title: How can I see my medications?
+    - payload: /eligible_medications_for_delivery_en
+      title: What medications can the patient request for delivery through the app?
+    - payload: /medication_delivery_process_en
+      title: What is the sequence of the medicine delivery request?
+    - payload: /medication_delivery_fee_en
+      title: What is the delivery fee for medicines?
+    - payload: /canceled_medication_delivery_en
+      title: If the medicine delivery request was canceled for any reason?
+    - payload: /reference_number_for_payment_en
+      title: What is the reference number for payment for the medicine delivery service?
+    - payload: /go_back_en
+      title: Go back to the previous menu.
+    text: 'Please choose one of the options to continue:'
+  utter_request_medicine_delivery_note_en:
+  - text: If the patient's insurance is not military (civilian), they cannot submit a request for medicine delivery.
+actions:
+- action_push_menu
+- action_pop_menu
+- action_custom_fallback

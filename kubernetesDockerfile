@@ -1,0 +1,16 @@
+# Base image
+FROM python:3.9.13
+
+RUN python -m pip install rasa==3.1.7
+RUN pip install websockets==10.4
+RUN python -m pip install PyMySQL
+
+WORKDIR /app
+
+COPY . .
+
+USER 1001
+
+ENTRYPOINT [ "rasa" ]
+
+CMD ["run", "--enable-api", "--cors", "*", "--log-file", "out.log"]
