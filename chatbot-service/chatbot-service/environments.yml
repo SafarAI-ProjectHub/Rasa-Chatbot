@@ -1,8 +1,0 @@
-rasa:
-  production:
-    url: "http://rasa:5005"
-    token: "AnotherSecureRandomString"
-
-  worker:
-    url: "http://rasa:5005"
-    token: "AnotherSecureRandomString"
