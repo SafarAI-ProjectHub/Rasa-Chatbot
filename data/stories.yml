@@ -1,1 +1,72 @@
 version: "3.0"
+
+stories:
+- story: greet then show menu
+  steps:
+    - intent: welcome
+    - action: utter_welcome
+
+- story: ask subscription types
+  steps:
+    - intent: faq.subscription_types
+    - action: utter_faq_subscription_types
+
+- story: ask payment methods
+  steps:
+    - intent: faq.payment_methods
+    - action: utter_faq_payment_methods
+
+- story: ask about placement test
+  steps:
+    - intent: faq.placement_test_info
+    - action: utter_faq_placement_test_info
+
+- story: start placement test
+  steps:
+    - intent: placement.start
+    - action: utter_placement_start
+
+- story: check placement test status
+  steps:
+    - intent: placement.status
+    - action: utter_placement_status
+
+- story: apply discount code
+  steps:
+    - intent: discount.apply
+    - action: utter_discount_apply
+
+- story: ask if discounts available
+  steps:
+    - intent: discount.availability
+    - action: utter_discount_availability
+
+- story: login help flow
+  steps:
+    - intent: account.login_help
+    - action: utter_account_login_help
+
+- story: reset password flow
+  steps:
+    - intent: account.reset_password
+    - action: utter_account_reset_password
+
+- story: update profile flow
+  steps:
+    - intent: account.update_profile
+    - action: utter_account_update_profile
+
+- story: create support ticket
+  steps:
+    - intent: support.create_ticket
+    - action: utter_support_create_ticket
+
+- story: chitchat
+  steps:
+    - intent: chitchat
+    - action: utter_chitchat
+
+- story: goodbye flow
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
