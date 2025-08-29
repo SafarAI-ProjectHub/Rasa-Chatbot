@@ -56,7 +56,6 @@ This project is a conversational AI chatbot built using the Rasa framework. Desi
 
 These components interact seamlessly to ensure efficient training, deployment, and performance monitoring of Rasa assistants.
 
-[Click here for more details.](https://gitlab.ehs.com.jo/software_projects/chatbot-service/-/tree/upload-rasa-files/Web_Code/rasa_x#3-architecture-and-components)
 
 <a name="INSALL"></a>
 
@@ -73,7 +72,7 @@ These components interact seamlessly to ensure efficient training, deployment, a
   #### 1. Clone the Repository
 
   ```bash
-  git clone git@gitlab.ehs.com.jo:software_projects/chatbot-service.git
+  git@github.com:SafarAI-ProjectHub/Rasa-Chatbot.git
   cd chatbot-service
   ```
 
