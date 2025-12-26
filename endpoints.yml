@@ -1,39 +1,41 @@
 # This file contains the different endpoints your bot can use.
 
-# Server where the models are pulled from.
-# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
-
+# ---------------------------
+# Rasa X (Model Server)
+# ---------------------------
 models:
-  url: http://rasax:5002/api/models/tags/production # Replace with external Rasa X IP Address from Step 14
-  token: "AnotherSecureRandomString" # Use the Rasa X token from basic-values.yml under rasax/charts
+  url: http://localhost:5002/api/projects/default/models/tags/production
+  token: rasax-token
   wait_time_between_pulls: 10
 
-# Server which runs your custom actions.
-# https://rasa.com/docs/rasa/custom-actions
 
+# ---------------------------
+# Action Server (local)
+# ---------------------------
 action_endpoint:
- url: "http://rasa_actions:5055/webhook"
+  url: "http://localhost:5055/webhook"
 
-# Tracker store which is used to store the conversations.
-# By default the conversations are stored in memory.
-# https://rasa.com/docs/rasa/tracker-stores
 
-tracker_store:
-  type: "sql"
-  dialect: "postgresql"
-  url: "db"
-  db: "rasa"
-  username: "rasa"
-  password: "rasa"
+# ---------------------------
+# Tracker Store (اختياري الآن)
+# إذا لم نربطه بـ Postgres → احذفه
+# ---------------------------
+# tracker_store:
+#   type: "sql"
+#   dialect: "postgresql"
+#   host: "localhost"
+#   port: 5432
+#   db: "rasa"
+#   username: "rasa"
+#   password: "rasa"
 
-# Event broker which all conversation events should be streamed to.
-# https://rasa.com/docs/rasa/event-brokers
 
-event_broker:
-  type: "pika"
-  url: "rabbit"         # Docker service name of RabbitMQ
-  port: 5672            # RabbitMQ default port
-  username: "user"   
-  password: "password"
-  queues:
-    - "rasa_production_events"
+# ---------------------------
+# Event Broker (اختياري الآن)
+# ---------------------------
+# event_broker:
+#   type: "pika"
+#   url: "localhost"
+#   port: 5672
+#   username: "guest"
+#   password: "guest"

@@ -1,0 +1,31 @@
+services:
+  rasax:
+    image: rasa/rasa-x:latest
+    ports:
+      - "5002:5002"
+    environment:
+      RASA_X_PASSWORD: admin123
+      RASA_X_TOKEN: rasax-token
+      RASA_TOKEN: rasax-token
+    depends_on:
+      - db
+      - rabbit
+    restart: unless-stopped
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: rasa
+      POSTGRES_PASSWORD: rasa
+      POSTGRES_DB: rasa
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  rabbit:
+    image: rabbitmq:3-management
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
