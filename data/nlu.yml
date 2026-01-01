@@ -1,9 +1,12 @@
 version: "3.0"
 
 nlu:
+
+# -------------------------
+# Welcome / Greeting
+# -------------------------
 - intent: welcome
   examples: |
-    - welcome
     - مرحبًا
     - أهلاً وسهلاً
     - السلام عليكم
@@ -16,72 +19,110 @@ nlu:
     - شو اخبارك
     - شلونك
     - شو الاخبار
-    - اوك
     - بدي مساعده
 
+# -------------------------
+# FAQ – Subscription
+# -------------------------
 - intent: faq.subscription_types
   examples: |
     - ما هي أنواع الاشتراكات؟
     - ايش الفرق بين الخطط؟
+    - خطط الاشتراك
+    - subscription types
+    - subscription plans
     - what subscription types do you offer
-    - subscription plans?
 
+# -------------------------
+# FAQ – Payment
+# -------------------------
 - intent: faq.payment_methods
   examples: |
     - ما طرق الدفع المتاحة؟
     - هل تدعمون CliQ؟
-    - payment options?
-    - how can I pay?
+    - طرق الدفع
+    - payment options
+    - how can I pay
 
+# -------------------------
+# FAQ – Placement Test
+# -------------------------
 - intent: faq.placement_test_info
   examples: |
     - كيف أبدأ اختبار تحديد المستوى؟
     - ايش هو اختبار المستوى؟
+    - اختبار تحديد المستوى
     - what is the placement test
     - tell me about placement test
 
+# -------------------------
+# Placement – Start
+# -------------------------
 - intent: placement.start
   examples: |
     - ابدأ اختبار المستوى
     - اريد امتحان تحديد المستوى
+    - بلش الاختبار
     - start placement test
     - begin my test
 
+# -------------------------
+# Placement – Status
+# -------------------------
 - intent: placement.status
   examples: |
     - وين وصلت باختبار المستوى؟
     - هل تم حفظ إجاباتي؟
+    - حالة الاختبار
     - check my placement status
-    - did my answers save?
+    - did my answers save
 
+# -------------------------
+# Discount – Apply Code
+# -------------------------
 - intent: discount.apply
   examples: |
     - عندي كود خصم [SAFAR10](code)
     - استخدم كود [JODFREE](code)
-    - apply discount code [SAVE20](code)
-    - I have promo code [PROMO50](code)
+    - كود خصم [SAVE20](code)
+    - apply discount code [PROMO50](code)
+    - I have promo code [WELCOME15](code)
 
+# -------------------------
+# Discount – Availability
+# -------------------------
 - intent: discount.availability
   examples: |
     - هل يوجد خصومات حالياً؟
     - في عروض؟
-    - are there discounts now?
-    - any promotions?
+    - عروض الاشتراك
+    - are there discounts now
+    - any promotions
 
+# -------------------------
+# Account – Login Help
+# -------------------------
 - intent: account.login_help
   examples: |
     - ما عم أقدر أسجل دخول
+    - مشكلة تسجيل الدخول
     - login problem
     - I can't log in
     - trouble signing in
 
+# -------------------------
+# Account – Reset Password
+# -------------------------
 - intent: account.reset_password
   examples: |
     - نسيت كلمة المرور
     - reset my password
     - forgot password
-    - help me reset login
+    - اعادة تعيين كلمة المرور
 
+# -------------------------
+# Account – Update Profile
+# -------------------------
 - intent: account.update_profile
   examples: |
     - بدي اعدل الملف الشخصي
@@ -89,20 +130,30 @@ nlu:
     - edit my account info
     - change profile details
 
+# -------------------------
+# Support
+# -------------------------
 - intent: support.create_ticket
   examples: |
-    - عندي مشكلة تقنيّة
+    - عندي مشكلة تقنية
     - افتح تذكرة دعم
+    - تواصل مع الدعم
     - help me contact support
     - I need support
 
+# -------------------------
+# Chit-chat
+# -------------------------
 - intent: chitchat
   examples: |
     - كيف حالك؟
-    - من أين أنت؟
-    - what's up?
-    - how are you?
+    - شو بتعمل؟
+    - what's up
+    - how are you
 
+# -------------------------
+# Goodbye
+# -------------------------
 - intent: goodbye
   examples: |
     - مع السلامة

@@ -1,72 +1,68 @@
 version: "3.0"
 
 stories:
-- story: greet then show menu
+
+# --------------------------------------------------
+# Welcome → User asks about subscriptions
+# --------------------------------------------------
+- story: greet then ask subscription types
   steps:
     - intent: welcome
     - action: utter_welcome
-
-- story: ask subscription types
-  steps:
     - intent: faq.subscription_types
     - action: utter_faq_subscription_types
 
-- story: ask payment methods
-  steps:
-    - intent: faq.payment_methods
-    - action: utter_faq_payment_methods
 
-- story: ask about placement test
+# --------------------------------------------------
+# Welcome → Placement test flow
+# --------------------------------------------------
+- story: greet then start placement test
   steps:
-    - intent: faq.placement_test_info
-    - action: utter_faq_placement_test_info
-
-- story: start placement test
-  steps:
+    - intent: welcome
+    - action: utter_welcome
     - intent: placement.start
     - action: utter_placement_start
 
-- story: check placement test status
+
+# --------------------------------------------------
+# Placement test → check status
+# --------------------------------------------------
+- story: placement test then check status
   steps:
+    - intent: placement.start
+    - action: utter_placement_start
     - intent: placement.status
     - action: utter_placement_status
 
-- story: apply discount code
+
+# --------------------------------------------------
+# Discount flow
+# --------------------------------------------------
+- story: apply discount and ask availability
   steps:
     - intent: discount.apply
     - action: utter_discount_apply
-
-- story: ask if discounts available
-  steps:
     - intent: discount.availability
     - action: utter_discount_availability
 
-- story: login help flow
+
+# --------------------------------------------------
+# Account support flow
+# --------------------------------------------------
+- story: login issue then reset password
   steps:
     - intent: account.login_help
     - action: utter_account_login_help
-
-- story: reset password flow
-  steps:
     - intent: account.reset_password
     - action: utter_account_reset_password
 
-- story: update profile flow
-  steps:
-    - intent: account.update_profile
-    - action: utter_account_update_profile
 
-- story: create support ticket
+# --------------------------------------------------
+# Support escalation flow
+# --------------------------------------------------
+- story: user has issue then create ticket
   steps:
+    - intent: account.login_help
+    - action: utter_account_login_help
     - intent: support.create_ticket
     - action: utter_support_create_ticket
-
-- story: chitchat
-  steps:
-    - intent: chitchat
-    - action: utter_chitchat
-
-- story: goodbye flow
-  steps:
-    - intent: goodbye
-    - action: utter_goodbye

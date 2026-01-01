@@ -1,77 +1,109 @@
 version: "3.0"
 
 rules:
-- rule: greet user
+
+# -------------------------
+# Greeting & Goodbye
+# -------------------------
+- rule: Greet the user
   steps:
     - intent: welcome
     - action: utter_welcome
 
-- rule: say goodbye
+- rule: Say goodbye
   steps:
     - intent: goodbye
     - action: utter_goodbye
 
-- rule: subscription types faq
+
+# -------------------------
+# FAQ Rules
+# -------------------------
+- rule: Answer subscription types FAQ
   steps:
     - intent: faq.subscription_types
     - action: utter_faq_subscription_types
 
-- rule: payment methods faq
+- rule: Answer payment methods FAQ
   steps:
     - intent: faq.payment_methods
     - action: utter_faq_payment_methods
 
-- rule: placement test info
+- rule: Answer placement test info FAQ
   steps:
     - intent: faq.placement_test_info
     - action: utter_faq_placement_test_info
 
-- rule: start placement test
+
+# -------------------------
+# Placement Test
+# -------------------------
+- rule: Start placement test
   steps:
     - intent: placement.start
     - action: utter_placement_start
 
-- rule: check placement status
+- rule: Check placement test status
   steps:
     - intent: placement.status
     - action: utter_placement_status
 
-- rule: apply discount
+
+# -------------------------
+# Discount
+# -------------------------
+- rule: Apply discount code
   steps:
     - intent: discount.apply
     - action: utter_discount_apply
 
-- rule: check discount availability
+- rule: Check discount availability
   steps:
     - intent: discount.availability
     - action: utter_discount_availability
 
-- rule: login help
+
+# -------------------------
+# Account
+# -------------------------
+- rule: Help with login issues
   steps:
     - intent: account.login_help
     - action: utter_account_login_help
 
-- rule: reset password
+- rule: Reset password help
   steps:
     - intent: account.reset_password
     - action: utter_account_reset_password
 
-- rule: update profile
+- rule: Update user profile
   steps:
     - intent: account.update_profile
     - action: utter_account_update_profile
 
-- rule: create support ticket
+
+# -------------------------
+# Support
+# -------------------------
+- rule: Create support ticket
   steps:
     - intent: support.create_ticket
     - action: utter_support_create_ticket
 
-- rule: small talk
+
+# -------------------------
+# Chit-chat
+# -------------------------
+- rule: Casual conversation
   steps:
     - intent: chitchat
     - action: utter_chitchat
 
-- rule: fallback
+
+# -------------------------
+# Fallback (important)
+# -------------------------
+- rule: Fallback when intent is not recognized
   steps:
     - intent: nlu_fallback
-    - action: action_custom_fallback
+    - action: utter_default_message
