@@ -1,41 +1,10 @@
 # This file contains the different endpoints your bot can use.
+# Docker setup: use docker service names (NOT localhost)
 
-# ---------------------------
-# Rasa X (Model Server)
-# ---------------------------
 models:
-  url: http://localhost:5002/api/projects/default/models/tags/production
-  token: rasax-token
+  url: http://rasax:5002/api/projects/default/models/tags/production
+  token: PUT_RASAX_API_TOKEN_HERE
   wait_time_between_pulls: 10
 
-
-# ---------------------------
-# Action Server (local)
-# ---------------------------
 action_endpoint:
-  url: "http://localhost:5055/webhook"
-
-
-# ---------------------------
-# Tracker Store (اختياري الآن)
-# إذا لم نربطه بـ Postgres → احذفه
-# ---------------------------
-# tracker_store:
-#   type: "sql"
-#   dialect: "postgresql"
-#   host: "localhost"
-#   port: 5432
-#   db: "rasa"
-#   username: "rasa"
-#   password: "rasa"
-
-
-# ---------------------------
-# Event Broker (اختياري الآن)
-# ---------------------------
-# event_broker:
-#   type: "pika"
-#   url: "localhost"
-#   port: 5672
-#   username: "guest"
-#   password: "guest"
+  url: "http://rasa_actions:5055/webhook"
